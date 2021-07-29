@@ -1,0 +1,41 @@
+{
+  "name": "@cicciosgamino/snack-bar",
+  "version": "1.0.0",
+  "description": "Simple snackbar Lit Element",
+  "main": "dist/snack-bar.es.js",
+  "exports": "./dist/snack-bar.es.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CICCIOSGAMINO/snack-bar.git"
+  },
+  "author": "@cicciosgamino <marco.canali@gmail.com>",
+  "license": "GPL-3.0",
+  "private": false,
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --port 3000 --host"
+  },
+  "keywords": [
+    "SnackBar",
+    "WebComponent",
+    "CustomElement",
+    "Lit"
+  ],
+  "bugs": {
+    "url": "https://github.com/CICCIOSGAMINO/snack-bar/issues"
+  },
+  "homepage": "https://github.com/CICCIOSGAMINO/snack-bar#readme",
+  "dependencies": {
+    "lit": "*"
+  },
+  "devDependencies": {
+    "vite": "^2.4.3"
+  },
+  "directories": {
+    "example": "examples/index.html"
+  }
+}

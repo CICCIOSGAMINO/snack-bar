@@ -1,0 +1,95 @@
+<!-- twitter / ig @cicciosgamino
+
+   _______           _                                  _
+  / ____(_)_________(_)___  _________ _____ _____ ___  (_)___  ____
+ / /   / / ___/ ___/ / __ \/ ___/ __ `/ __ `/ __ `__ \/ / __ \/ __ \
+/ /___/ / /__/ /__/ / /_/ (__  ) /_/ / /_/ / / / / / / / / / / /_/ /
+\____/_/\___/\___/_/\____/____/\__, /\__,_/_/ /_/ /_/_/_/ /_/\____/
+                              /____/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="author" content="@cicciosgamino"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>🍣 Sushi</title>
+
+  <style>
+    :root {
+      --surface1: whitesmoke;
+      --text1: hsl(200, 65%, 15%);
+    }
+    * {
+      /* reset browser defaults */
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      /* base rem unit (10px) */
+      font-size: 62.5%;
+      block-size: 100%;
+
+      background-color: var(--surface1);
+      color: var(--text1);
+    }
+    body  {
+      padding: 5rem;
+      
+      font-family: system-ui, sans-serif;
+      font-size: 2rem;
+
+      display: grid;
+      place-content: center;
+      gap: 5rem;
+    }
+
+    snack-bar {
+      --snack-bottom: 10rem;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+  <header>
+    <h1>👨‍💻 Develope here</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>🦄 Main stuff</h2>
+    </section>
+  </main>
+
+  <!-- Use the snackbar -->
+  <snack-bar timing="5000" title="@Cicciosgamino"></snack-bar>
+
+  <noscript>
+    Please enable JavaScript to view this website.
+  </noscript>
+
+  <!-- Import Js Module -->
+  <script type="module" src="./snack-bar.js"></script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const snack = document.querySelector('snack-bar')
+      setTimeout(() => {
+        // active the snack
+        snack.setAttribute('active', '')
+      }, 5000)
+      setTimeout(() => {
+        // close the snack (before timing ended)
+        snack.closeSnackbar()
+      }, 8000)
+    })
+  </script>
+
+</body>
+</html>
