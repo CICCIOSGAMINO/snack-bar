@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 29-07-2021
+### Changed
+  - Change module part in package.json, link to source snack-bar.js
+
 ## [1.0.0] - 07-07-2021
 ### Added
   - Init the Element  [@cicciosgamino](https://github.com/CICCIOSGAMINO).

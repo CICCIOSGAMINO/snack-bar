@@ -1,12 +1,9 @@
 {
   "name": "@cicciosgamino/snack-bar",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple snackbar Lit Element",
-  "main": "dist/snack-bar.es.js",
-  "exports": "./dist/snack-bar.es.js",
-  "files": [
-    "dist"
-  ],
+  "main": "snack-bar.js",
+  "module": "snack-bar.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CICCIOSGAMINO/snack-bar.git"
