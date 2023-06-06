@@ -18,18 +18,21 @@ class SnackBar extends LitElement {
         padding: 0;
         box-sizing: border-box;
       }
+
       :host {
         display: none;
         animation-name: fadeOut;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
       }
+
       :host-context([active]) {
         /* Handle CSS when host active */
         animation-name: fadeIn;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
       }
+
       #snackbar {
         border-radius: var(--snack-radius, 1px);
         min-width: 100%;
@@ -43,18 +46,18 @@ class SnackBar extends LitElement {
         transform: translate(-50%, 0);
         bottom: var(--snack-bottom, 0);
       }
+
       #container {
         margin: calc(var(--snack-font-size, 2.1rem) * 1.1);
-        display: grid;
-        grid-template-columns: 5fr 1fr;
-        grid-template-rows: 1fr;
       }
+
       p {
         font-size: var(--snack-font-size, 2.1rem);
         font-weight: 400;
         line-height: var(--snack-font-size, 2.1rem);
       }
-      button {
+
+      #snackBtn {
         width: var(--snack-font-size, 2.1rem);
         height: var(--snack-font-size, 2.1rem);
 
@@ -62,8 +65,11 @@ class SnackBar extends LitElement {
         border: none;
         cursor: pointer;
 
-        position: relative;
+        position: absolute;
+        top: calc(var(--snack-font-size, 2.1rem) * 1.3);
+        right: 3rem;
       }
+
       button::after {
         content: '';
         position: absolute;
@@ -79,14 +85,17 @@ class SnackBar extends LitElement {
         transform: scale(0);
         transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
       }
+
       button:hover::after {
         transform: scale(1);
       }
+
       button svg {
         width: var(--snack-font-size, 2.1rem);
         height: var(--snack-font-size, 2.1rem);
         fill: var(--snack-txt-color, #f5f5f5);
       }
+
       button:hover svg {
         transform: scale(0.95);
       }
@@ -117,18 +126,25 @@ class SnackBar extends LitElement {
         reflect: true
       },
       active: Boolean,
-      timing: Number
+      timing: Number,
+      closebtn: {
+        type: Boolean,
+        reflect: true
+      }
     }
   }
 
   constructor () {
     super()
     this.title = '🌰 ... SnackBar Title' || ''
-    this.timing = 3000
+    this.timing = 5000
   }
 
   connectedCallback () {
     super.connectedCallback()
+    this.addEventListener('click', this.#deactivate)
+
+    console.log('@CLOSE-BTN >> ', this.closebtn)
   }
 
   disconnectedCallback () {
@@ -179,12 +195,18 @@ class SnackBar extends LitElement {
             ${this.title}
           </p>
 
-          <button @click=${this.closeSnackbar}>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
-              <path d="M0 0h24v24H0V0z" fill="none"/>
-              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
-            </svg>
-          </button>
+          ${this.closebtn ?
+            html`
+              <!-- deprecated -->
+              <button
+                id="snackBtn"
+                @click=${this.closeSnackbar}>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                  <path d="M0 0h24v24H0V0z" fill="none"/>
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                </svg>
+              </button>` : null
+          }
 
         </div>
       </div>

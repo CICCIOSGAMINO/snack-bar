@@ -16,7 +16,7 @@
   <meta name="author" content="@cicciosgamino"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>🍣 Sushi</title>
+  <title>🍣 SnackBar</title>
 
   <style>
     :root {
@@ -49,7 +49,7 @@
     }
 
     snack-bar {
-      --snack-bottom: 10rem;
+      /* --snack-bottom: 10rem;  absolute position from bottom */
     }
   </style>
   
@@ -67,8 +67,14 @@
     </section>
   </main>
 
-  <!-- Use the snackbar -->
-  <snack-bar timing="5000" title="@Cicciosgamino"></snack-bar>
+  <!-- (default)
+  <snack-bar></snack-bar> -->
+
+  <!-- (default) with close button -->
+  <snack-bar closebtn></snack-bar>
+
+  <!-- Use the snackbar custom timing / title with close button
+  <snack-bar timing="5000" title="@Cicciosgamino" closebtn></snack-bar> -->
 
   <noscript>
     Please enable JavaScript to view this website.
@@ -83,11 +89,11 @@
       setTimeout(() => {
         // active the snack
         snack.setAttribute('active', '')
-      }, 5000)
+      }, 1000)
       setTimeout(() => {
         // close the snack (before timing ended)
         snack.closeSnackbar()
-      }, 8000)
+      }, 28000)
     })
   </script>
 

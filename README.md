@@ -56,6 +56,7 @@ npm install --save @cicciosgamino/snack-bar
 | timing  | Number  | `3000`  | Snackbar active timing
 | title   | String  | `🌰 ... SnackBar Title` | Snackbar title
 | active  | Boolean | `` | Snackbar active attribute (present/NOT)
+| closebtn| Boolean | `` | Show the close button when attribute is present
 
 
 ### Methods
